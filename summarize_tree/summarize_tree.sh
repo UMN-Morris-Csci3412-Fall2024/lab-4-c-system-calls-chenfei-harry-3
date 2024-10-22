@@ -4,6 +4,7 @@
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <path>"
+    echo "       where <path> is the file or root of the tree you want to summarize."
     exit 1
 fi
 
@@ -11,7 +12,6 @@ fi
 dir_count=$(find "$1" -type d | wc -l)
 file_count=$(find "$1" -type f | wc -l)
 
-# Print the results with precise formatting using printf
-echo "Processed all the files from $1."
-printf "There were %d directories.\n" $((dir_count - 1))
-printf "There were %d regular files.\n" $file_count
+# Print the results 
+echo "There were $dir_count directories."
+echo "There were $file_count regular files."
